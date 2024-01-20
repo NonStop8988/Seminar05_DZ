@@ -3,18 +3,13 @@
 // Функция - Поиск элемента двумерного массива по заданным позициям
 int FindElementByPosition(int[,] array, int x, int y)
 {
-    int elementPosition = array[x-1, y-1];
-    return elementPosition;
+    return array[x-1, y-1];
 }
 
 // Функция - проверка наличия элемента в массиве
 bool ValidatePosition(int[,] array, int x, int y)
 {
-    if (x <= array.GetLength(0) && x > 0 && y > 0 && y <= array.GetLength(1))
-    {
-        return true;
-    }
-    return false;
+    return x <= array.GetLength(0) && x > 0 && y > 0 && y <= array.GetLength(1);
 }
 
 // Функция - вывести результат проверки заданных значений в двумерном массиве
@@ -46,7 +41,7 @@ int[,] array = new int[,]
     {5, 6, 7, 8},
     {9, 10, 11, 12}
 };
-int x = 3;
+int x = 4;
 int y = 4;
 
 Console.Clear();
