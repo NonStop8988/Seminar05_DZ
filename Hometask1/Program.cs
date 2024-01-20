@@ -9,7 +9,7 @@ int FindElementByPosition(int[,] array, int x, int y)
 // Функция - проверка наличия элемента в массиве
 bool ValidatePosition(int[,] array, int x, int y)
 {
-    return x <= array.GetLength(0) && x > 0 && y > 0 && y <= array.GetLength(1);
+    return x <= array.GetLength(0) && x > 0 && y > 0 && y <= array.GetLength(1); // возвращает true, если условие выполняется, и false в противном случае
 }
 
 // Функция - вывести результат проверки заданных значений в двумерном массиве
