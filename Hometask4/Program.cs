@@ -33,8 +33,24 @@ void PrintArray(int[,] array)
 int FindMinElementArray(int[,] array)
 {
     int minElement = array[0, 0];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] < minElement)
+            {
+                minElement = array[i, j];
+            }
+        }
+    }
+    return minElement;
+}
+
+// Функция - поиск индекса строки минимального элемента двумерного массива
+int FindMinIndexRowArray(int[,] array)
+{
+    int minElement = array[0, 0];
     int minRow = 0;
-    int minCol = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
@@ -43,11 +59,29 @@ int FindMinElementArray(int[,] array)
             {
                 minElement = array[i, j];
                 minRow = i;
+            }
+        }
+    }
+    return minRow;
+}
+
+// Функция - поиск индекса столбца минимального элемента двумерного массива
+int FindMinIndexColArray(int[,] array)
+{
+    int minElement = array[0, 0];
+    int minCol = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] < minElement)
+            {
+                minElement = array[i, j];
                 minCol = j;
             }
         }
     }
-    return minElement;
+    return minCol;
 }
 
 // Функция - вывод массива без строк и столбцов с наименьшим значением элемента
@@ -90,23 +124,11 @@ while (workProgramm)
     {
         int[,] array = CreateTwoDimensionalArray(number);
         PrintArray(array);
-        int minElement = array[0, 0];
-        int minRow = 0;
-        int minCol = 0;
-        for (int i = 0; i < array.GetLength(0); i++)
-        {
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                if (array[i, j] < minElement)
-                {
-                    minElement = array[i, j];
-                    minRow = i;
-                    minCol = j;
-                }
-            }
-        }
+        int minElement = FindMinElementArray(array);
+        int minRow = FindMinIndexRowArray(array);
+        int minCol = FindMinIndexColArray(array);
         int[,] delArray = PrintArrayWithoutMin(array, minRow, minCol);
-        Console.WriteLine("Новый массив с удаленными строкой и столбцом минимального элемента:");
+        Console.WriteLine($"Новый массив с удаленными строкой [{minRow}] и столбцом [{minCol}] минимального элемента ({minElement}):");
         PrintArray(delArray);
         workProgramm = false;
     }
