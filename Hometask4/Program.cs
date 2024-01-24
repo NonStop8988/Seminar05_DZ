@@ -85,7 +85,7 @@ int FindMinIndexColArray(int[,] array)
 }
 
 // Функция - вывод массива без строк и столбцов с наименьшим значением элемента
-int[,] PrintArrayWithoutMin(int[,] array, int row, int col)
+int[,] GetArrayWithoutMin(int[,] array, int row, int col)
 {
     int newRowCount = array.GetLength(0) - 1;
     int newColCount = array.GetLength(1) - 1;
@@ -127,7 +127,7 @@ while (workProgramm)
         int minElement = FindMinElementArray(array);
         int minRow = FindMinIndexRowArray(array);
         int minCol = FindMinIndexColArray(array);
-        int[,] arrayWithoutMinElem = PrintArrayWithoutMin(array, minRow, minCol);
+        int[,] arrayWithoutMinElem = GetArrayWithoutMin(array, minRow, minCol);
         Console.WriteLine($"Новый массив с удаленными строкой [{minRow}] и столбцом [{minCol}] минимального элемента ({minElement}):");
         PrintArray(arrayWithoutMinElem);
         workProgramm = false;
