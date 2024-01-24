@@ -127,9 +127,9 @@ while (workProgramm)
         int minElement = FindMinElementArray(array);
         int minRow = FindMinIndexRowArray(array);
         int minCol = FindMinIndexColArray(array);
-        int[,] delArray = PrintArrayWithoutMin(array, minRow, minCol);
+        int[,] arrayWithoutMinElem = PrintArrayWithoutMin(array, minRow, minCol);
         Console.WriteLine($"Новый массив с удаленными строкой [{minRow}] и столбцом [{minCol}] минимального элемента ({minElement}):");
-        PrintArray(delArray);
+        PrintArray(arrayWithoutMinElem);
         workProgramm = false;
     }
     else 
